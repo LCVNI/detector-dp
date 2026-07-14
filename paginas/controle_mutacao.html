@@ -1,0 +1,92 @@
+<!--
+  Categoria: Controle com mutação (hard negative estrutural)
+  Objetivo: ter uma mutação real na DOM — inclusive inserindo um valor
+  monetário, o mesmo tipo de sinal que o detector estrutural (Etapa 2)
+  usa para suspeitar de Furtividade — mas de forma transparente e
+  esperada (cálculo de frete visível desde o início como "calculando...",
+  sem ocultação, sem timing enganoso, sem linguagem de urgência).
+
+  Isso estende a Regra R4 (hard negatives) do plano para o NÍVEL
+  ESTRUTURAL, não só o textual: o objetivo é que esta página
+  eventualmente ainda dispare a heurística ingênua "monetário inserido
+  via mutação -> furtividade" da Etapa 2 sozinha — e que seja o
+  classificador textual (Etapa 3) + a correlação (Etapa 4) que
+  corrijam esse falso positivo, olhando o contexto ("calculando..."
+  como placeholder, ausência de linguagem de ocultação/urgência).
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>LojaModelo — Checkout</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;background:#f5f5f7;margin:0;color:#222}
+  .topo{background:#1c2b3a;color:#fff;padding:16px 24px;font-weight:bold;font-size:20px}
+  .container{max-width:640px;margin:32px auto;background:#fff;border-radius:8px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+  h1{font-size:18px;margin-top:0}
+  .item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #eee}
+  .linha-total{display:flex;justify-content:space-between;font-weight:bold;padding:14px 0;font-size:16px}
+  .pendente{color:#888;font-style:italic}
+  button{background:#2e7d32;color:#fff;border:0;padding:12px 20px;border-radius:6px;font-size:15px;cursor:pointer;width:100%;margin-top:12px}
+</style>
+</head>
+<body data-dp-origem="real" data-dp-categoria-intencao="controle_mutacao">
+  <div class="topo">LojaModelo</div>
+  <div class="container">
+    <h1>Resumo do pedido</h1>
+
+    <!-- Desde o primeiro render já existe uma linha de frete, com
+         placeholder visível e rotulado — nada é inserido "do nada"
+         nem escondido; o usuário sabe, desde o início, que esse
+         valor está a caminho. -->
+    <div class="item"><span>Tênis de corrida</span><span>R$ 259,00</span></div>
+    <div class="item" id="elemento-frete-calculado">
+      <span>Frete</span><span class="pendente" id="valor-frete">calculando...</span>
+    </div>
+    <div class="linha-total"><span>Total</span><span id="valor-total" class="pendente">calculando...</span></div>
+
+    <button id="btn-finalizar" disabled>Finalizar compra</button>
+  </div>
+
+<script>
+  // Mutação real e legítima: o frete depende do CEP/peso e leva um
+  // tempo real para ser calculado (simulado aqui). Implementado como
+  // SUBSTITUIÇÃO de elemento (padrão comum em apps client-side que
+  // re-renderizam um componente), para que a mutação seja capturável
+  // pelo MutationObserver do detector estrutural (Etapa 2) — a mesma
+  // classe de sinal usada para suspeitar de Furtividade. A diferença
+  // em relação a furtividade.html não está na mecânica da mutação,
+  // e sim no CONTEXTO/TEXTO: aqui já existia uma linha "Frete:
+  // calculando..." desde o primeiro render (nada surge do nada), o
+  // nome da cobrança é padrão e esperado ("Frete", não um nome vago
+  // tipo "ajuste de processamento"), e não há linguagem de urgência.
+  // Resolver essa diferença é trabalho do classificador textual
+  // (Etapa 3) e da correlação (Etapa 4), não do detector estrutural
+  // sozinho.
+  const TEMPO_CALCULO_MS = 2000;
+
+  setTimeout(() => {
+    const freteCalculado = 12.90;
+    const subtotal = 259.00;
+    const total = subtotal + freteCalculado;
+
+    const linhaAntiga = document.getElementById('elemento-frete-calculado');
+    const linhaNova = document.createElement('div');
+    linhaNova.className = 'item';
+    linhaNova.id = 'elemento-frete-calculado';
+    linhaNova.innerHTML = '<span>Frete</span><span>R$ ' + freteCalculado.toFixed(2).replace('.', ',') + '</span>';
+    linhaAntiga.replaceWith(linhaNova);
+
+    const elTotal = document.getElementById('valor-total');
+    elTotal.textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
+    elTotal.classList.remove('pendente');
+
+    document.getElementById('btn-finalizar').disabled = false;
+  }, TEMPO_CALCULO_MS);
+
+  document.getElementById('btn-finalizar').addEventListener('click', () => {
+    alert('Pedido enviado (simulação — página de teste).');
+  });
+</script>
+</body>
+</html>
