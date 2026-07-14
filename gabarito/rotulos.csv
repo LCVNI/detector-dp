@@ -1,0 +1,12 @@
+id_pagina,id_elemento,tipo_dp_esperado,origem,detectado_manual,detectado_sistema,resultado
+furtividade,elemento-taxa-oculta,Furtividade,real,,,
+obstrucao,elemento-cancelar,Obstrução,real,,,
+acaoforcada,elemento-timer,Ação Forçada,real,,,
+acaoforcada,elemento-checkbox-preselecionado,Ação Forçada,real,,,
+controle,elemento-promo-real,Nenhum (hard negative),real,,,
+controle,elemento-newsletter-opcional,Nenhum (hard negative),real,,,
+controle_mutacao,elemento-frete-calculado,Nenhum (hard negative estrutural),real,,,
+combinada,elemento-taxa-oculta,Furtividade,real,,,
+combinada,elemento-cancelar,Obstrução,real,,,
+combinada,elemento-timer,Ação Forçada,real,,,
+combinada,elemento-checkbox-preselecionado,Ação Forçada,real,,,
