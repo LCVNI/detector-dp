@@ -1,0 +1,92 @@
+<!--
+  Categoria: Obstrução (Obstruction)
+  Referência: Gray et al. (2018) — "making a process more difficult than it
+  needs to be, with the intent of dissuading certain action(s)".
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>LojaModelo — Minha Conta</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;background:#f5f5f7;margin:0;color:#222}
+  .topo{background:#1c2b3a;color:#fff;padding:16px 24px;font-weight:bold;font-size:20px}
+  .container{max-width:640px;margin:32px auto;background:#fff;border-radius:8px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+  h1{font-size:18px}
+  .plano{border:1px solid #e0e0e0;border-radius:6px;padding:16px;margin-bottom:20px}
+  .plano b{font-size:16px}
+  /* Elemento suspeito: link de cancelamento com baixo contraste e fonte reduzida,
+     enterrado no rodapé de uma seção secundária — técnica de ocultação por
+     redução de saliência visual (não é display:none, para simular um caso
+     mais sutil de detectar do que um dp óbvio) */
+  .rodape-conta{margin-top:40px;font-size:10px;color:#cfcfcf;text-align:center}
+  #elemento-cancelar{color:#d8d8d8;text-decoration:underline;cursor:pointer}
+  .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);align-items:center;justify-content:center}
+  .modal.aberto{display:flex}
+  .caixa-modal{background:#fff;padding:24px;border-radius:8px;max-width:360px;text-align:center}
+  .caixa-modal button{margin:6px;padding:10px 16px;border-radius:6px;border:0;cursor:pointer}
+  .btn-continuar{background:#2e7d32;color:#fff}
+  .btn-cancelar-real{background:#eee;color:#333;font-size:11px}
+</style>
+</head>
+<body data-dp-origem="real" data-dp-categoria-intencao="obstrucao">
+  <div class="topo">LojaModelo</div>
+  <div class="container">
+    <h1>Minha assinatura</h1>
+    <div class="plano">
+      <b>Plano Premium</b> — R$ 39,90/mês<br>
+      Próxima cobrança: 20/07/2026
+    </div>
+    <button style="background:#1565c0;color:#fff;border:0;padding:10px 18px;border-radius:6px">Alterar forma de pagamento</button>
+
+    <div class="rodape-conta">
+      <span id="elemento-cancelar">cancelar assinatura</span>
+    </div>
+  </div>
+
+  <!-- Etapa 1 de 3 do fluxo de cancelamento -->
+  <div class="modal" id="modal1">
+    <div class="caixa-modal">
+      <p>Tem certeza? Você perderá acesso a conteúdos exclusivos e frete grátis.</p>
+      <button class="btn-continuar" id="btn-manter1">Manter assinatura</button><br>
+      <button class="btn-cancelar-real" id="btn-avancar2">Ainda quero cancelar</button>
+    </div>
+  </div>
+
+  <!-- Etapa 2 de 3 -->
+  <div class="modal" id="modal2">
+    <div class="caixa-modal">
+      <p>Que tal pausar por 30 dias em vez de cancelar de vez?</p>
+      <button class="btn-continuar" id="btn-manter2">Pausar assinatura</button><br>
+      <button class="btn-cancelar-real" id="btn-avancar3">Não, quero cancelar mesmo</button>
+    </div>
+  </div>
+
+  <!-- Etapa 3 de 3 -->
+  <div class="modal" id="modal3">
+    <div class="caixa-modal">
+      <p>Última confirmação: o cancelamento é imediato e irreversível.</p>
+      <button class="btn-continuar" id="btn-manter3">Voltar</button><br>
+      <button class="btn-cancelar-real" id="btn-confirmar">Confirmar cancelamento</button>
+    </div>
+  </div>
+
+<script>
+  // Elemento suspeito para o gabarito: id_elemento = "elemento-cancelar"
+  // (mais o fluxo de 3 modais como evidência estrutural de obstrução)
+  const abrir = id => document.getElementById(id).classList.add('aberto');
+  const fechar = id => document.getElementById(id).classList.remove('aberto');
+
+  document.getElementById('elemento-cancelar').addEventListener('click', () => abrir('modal1'));
+  document.getElementById('btn-manter1').addEventListener('click', () => fechar('modal1'));
+  document.getElementById('btn-avancar2').addEventListener('click', () => { fechar('modal1'); abrir('modal2'); });
+  document.getElementById('btn-manter2').addEventListener('click', () => fechar('modal2'));
+  document.getElementById('btn-avancar3').addEventListener('click', () => { fechar('modal2'); abrir('modal3'); });
+  document.getElementById('btn-manter3').addEventListener('click', () => fechar('modal3'));
+  document.getElementById('btn-confirmar').addEventListener('click', () => {
+    fechar('modal3');
+    alert('Assinatura cancelada (simulação — página de teste).');
+  });
+</script>
+</body>
+</html>

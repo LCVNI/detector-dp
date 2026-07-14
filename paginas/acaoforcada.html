@@ -1,0 +1,62 @@
+<!--
+  Categoria: Ação Forçada (Forced Action)
+  Referência: Gray et al. (2018) — usuário deve realizar uma ação não desejada
+  para acessar uma funcionalidade; e Mathur et al. (2019) sobre uso de
+  contadores de urgência artificial para pressionar decisão de compra.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>LojaModelo — Checkout</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;background:#f5f5f7;margin:0;color:#222}
+  .topo{background:#1c2b3a;color:#fff;padding:16px 24px;font-weight:bold;font-size:20px}
+  .container{max-width:640px;margin:32px auto;background:#fff;border-radius:8px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+  h1{font-size:18px;margin-top:0}
+  #elemento-timer{background:#c62828;color:#fff;padding:10px 14px;border-radius:6px;text-align:center;font-weight:bold;margin-bottom:18px}
+  .opcao{display:flex;align-items:center;gap:8px;margin:14px 0;font-size:14px}
+  button{background:#2e7d32;color:#fff;border:0;padding:12px 20px;border-radius:6px;font-size:15px;cursor:pointer;width:100%;margin-top:10px}
+</style>
+</head>
+<body data-dp-origem="real" data-dp-categoria-intencao="acao_forcada">
+  <div class="topo">LojaModelo</div>
+  <div class="container">
+    <h1>Finalizar compra</h1>
+
+    <!-- Elemento suspeito: id_elemento = "elemento-timer" (urgência artificial: reinicia a cada carregamento, não referencia uma promoção real com data/hora fixa) -->
+    <div id="elemento-timer">Restam <span id="contador">02:00</span> para garantir este preço!</div>
+
+    <div class="opcao">
+      <!-- Elemento suspeito: id_elemento = "elemento-checkbox-preselecionado" -->
+      <input type="checkbox" id="elemento-checkbox-preselecionado" checked>
+      <label for="elemento-checkbox-preselecionado">Quero receber ofertas por e-mail e de parceiros selecionados</label>
+    </div>
+
+    <div class="opcao">
+      <input type="checkbox" id="chk-termos">
+      <label for="chk-termos">Li e aceito os termos de compra</label>
+    </div>
+
+    <button id="btn-comprar">Comprar agora — R$ 259,00</button>
+  </div>
+
+<script>
+  // Contador regressivo falso: reinicia sempre em 02:00 a cada carregamento
+  // da página, sem vínculo com nenhuma data/hora real de expiração de oferta.
+  let restante = 120;
+  const el = document.getElementById('contador');
+  setInterval(() => {
+    if (restante <= 0) return;
+    restante--;
+    const m = String(Math.floor(restante / 60)).padStart(2, '0');
+    const s = String(restante % 60).padStart(2, '0');
+    el.textContent = `${m}:${s}`;
+  }, 1000);
+
+  document.getElementById('btn-comprar').addEventListener('click', () => {
+    alert('Compra confirmada (simulação — página de teste).');
+  });
+</script>
+</body>
+</html>
