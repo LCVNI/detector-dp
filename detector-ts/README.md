@@ -1,1 +1,1 @@
-
+# detector estrutural (TypeScript)
