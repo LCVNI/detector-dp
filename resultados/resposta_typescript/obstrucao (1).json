@@ -1,0 +1,20 @@
+{
+  "pagina": "obstrucao",
+  "elementosCaptados": [
+    {
+      "idElemento": "elemento-cancelar",
+      "tag": "span",
+      "texto": "cancelar assinatura",
+      "textoContexto": "cancelar assinatura",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "baixa_saliencia_visual"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": 10,
+        "contraste": 1.4253032906668652
+      }
+    }
+  ]
+}

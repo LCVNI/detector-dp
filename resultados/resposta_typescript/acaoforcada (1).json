@@ -1,0 +1,50 @@
+{
+  "pagina": "acaoforcada",
+  "elementosCaptados": [
+    {
+      "idElemento": "contador",
+      "tag": "span",
+      "texto": "01:57",
+      "textoContexto": "Restam 01:57 para garantir este preço!",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "formato_temporal"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": null,
+        "contraste": 5.622022891421645
+      }
+    },
+    {
+      "idElemento": "elemento-checkbox-preselecionado",
+      "tag": "input",
+      "texto": "",
+      "textoContexto": "Quero receber ofertas por e-mail e de parceiros selecionados",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "checkbox_pre_marcado"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": 14,
+        "contraste": 15.909984431773273
+      }
+    },
+    {
+      "idElemento": "btn-comprar",
+      "tag": "button",
+      "texto": "Comprar agora — R$ 259,00",
+      "textoContexto": "Finalizar compra Restam 01:57 para garantir este preço! Quero receber ofertas por e-mail e de parceiros selecionados Li e aceito os termos de compra Comprar agora — R$ 259,00",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "valor_monetario"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": 15,
+        "contraste": 5.127363028214465
+      }
+    }
+  ]
+}

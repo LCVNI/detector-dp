@@ -1,0 +1,50 @@
+{
+  "pagina": "controle",
+  "elementosCaptados": [
+    {
+      "idElemento": "elemento-promo-real",
+      "tag": "div",
+      "texto": "Frete grátis em compras realizadas até 23:59 de 20/07/2026.",
+      "textoContexto": "Resumo do pedido Frete grátis em compras realizadas até 23:59 de 20/07/2026. Mochila impermeávelR$ 219,00 SubtotalR$ 219,00 Quero receber novidades e promoções por e-mail Finalizar compra Gerenciar minha conta / cancelar",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "formato_temporal"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": 14,
+        "contraste": 12.58657223402548
+      }
+    },
+    {
+      "idElemento": "(sem id)",
+      "tag": "span",
+      "texto": "R$ 219,00",
+      "textoContexto": "Mochila impermeávelR$ 219,00",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "valor_monetario"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": null,
+        "contraste": 15.909984431773273
+      }
+    },
+    {
+      "idElemento": "(sem id)",
+      "tag": "span",
+      "texto": "R$ 219,00",
+      "textoContexto": "SubtotalR$ 219,00",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "valor_monetario"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": 16,
+        "contraste": 15.909984431773273
+      }
+    }
+  ]
+}

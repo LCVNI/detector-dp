@@ -1,0 +1,110 @@
+{
+  "pagina": "combinada",
+  "elementosCaptados": [
+    {
+      "idElemento": "elemento-taxa-oculta",
+      "tag": "div",
+      "texto": "Custo adicional de manuseioR$ 19,90",
+      "textoContexto": "Cafeteira elétricaR$ 349,90 Custo adicional de manuseioR$ 19,90SubtotalR$ 369,80",
+      "tipoEvento": "insercao_nova",
+      "padroesDetectados": [
+        "valor_monetario"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": null,
+        "contraste": 15.437073884644938
+      }
+    },
+    {
+      "idElemento": "contador",
+      "tag": "span",
+      "texto": "01:57",
+      "textoContexto": "Restam 01:57 para garantir este preço!",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "formato_temporal"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": null,
+        "contraste": 5.622022891421645
+      }
+    },
+    {
+      "idElemento": "(sem id)",
+      "tag": "span",
+      "texto": "R$ 349,90",
+      "textoContexto": "Cafeteira elétricaR$ 349,90",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "valor_monetario"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": null,
+        "contraste": 15.909984431773273
+      }
+    },
+    {
+      "idElemento": "(sem id)",
+      "tag": "span",
+      "texto": "R$ 19,90",
+      "textoContexto": "Custo adicional de manuseioR$ 19,90",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "valor_monetario"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": null,
+        "contraste": 15.437073884644938
+      }
+    },
+    {
+      "idElemento": "valor-subtotal",
+      "tag": "span",
+      "texto": "R$ 369,80",
+      "textoContexto": "SubtotalR$ 369,80",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "valor_monetario"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": 16,
+        "contraste": 15.909984431773273
+      }
+    },
+    {
+      "idElemento": "elemento-checkbox-preselecionado",
+      "tag": "input",
+      "texto": "",
+      "textoContexto": "Quero receber ofertas por e-mail e de parceiros selecionados",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "checkbox_pre_marcado"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": 14,
+        "contraste": 15.909984431773273
+      }
+    },
+    {
+      "idElemento": "elemento-cancelar",
+      "tag": "span",
+      "texto": "cancelar assinatura",
+      "textoContexto": "cancelar assinatura",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "baixa_saliencia_visual"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": 10,
+        "contraste": 1.4253032906668652
+      }
+    }
+  ]
+}

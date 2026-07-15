@@ -1,0 +1,65 @@
+{
+  "pagina": "controle_mutacao",
+  "elementosCaptados": [
+    {
+      "idElemento": "elemento-frete-calculado",
+      "tag": "div",
+      "texto": "FreteR$ 12,90",
+      "textoContexto": "Resumo do pedido Tênis de corridaR$ 259,00 FreteR$ 12,90 TotalR$ 271,90 Finalizar compra",
+      "tipoEvento": "substituicao_elemento",
+      "padroesDetectados": [
+        "valor_monetario"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": null,
+        "contraste": 15.909984431773273
+      }
+    },
+    {
+      "idElemento": "(sem id)",
+      "tag": "span",
+      "texto": "R$ 259,00",
+      "textoContexto": "Tênis de corridaR$ 259,00",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "valor_monetario"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": null,
+        "contraste": 15.909984431773273
+      }
+    },
+    {
+      "idElemento": "(sem id)",
+      "tag": "span",
+      "texto": "R$ 12,90",
+      "textoContexto": "FreteR$ 12,90",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "valor_monetario"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": null,
+        "contraste": 15.909984431773273
+      }
+    },
+    {
+      "idElemento": "valor-total",
+      "tag": "span",
+      "texto": "R$ 271,90",
+      "textoContexto": "TotalR$ 271,90",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "valor_monetario"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": 16,
+        "contraste": 15.909984431773273
+      }
+    }
+  ]
+}
