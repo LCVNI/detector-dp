@@ -1,0 +1,92 @@
+{
+  "pagina": "acaoforcada",
+  "elementosCaptados": [
+    {
+      "idElemento": "contador",
+      "tag": "span",
+      "texto": "01:57",
+      "textoContexto": "Restam 01:57 para garantir este preço!",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "formato_temporal"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": null,
+        "contraste": 5.622022891421645
+      },
+      "semantica": {
+        "tagsSemanticas": [
+          "urgencia_artificial"
+        ],
+        "evidencias": {
+          "urgencia_artificial": [
+            "restam",
+            "garantir este preço"
+          ]
+        },
+        "confiancaSemantica": 0.7
+      },
+      "decisaoFinal": {
+        "categoria": "acao_forcada",
+        "darkPatternCritico": true,
+        "nivelConfianca": "alta",
+        "justificativa": "contador em formato mm:ss correlacionado com linguagem de urgência (restam, garantir este preço)"
+      }
+    },
+    {
+      "idElemento": "elemento-checkbox-preselecionado",
+      "tag": "input",
+      "texto": "",
+      "textoContexto": "Quero receber ofertas por e-mail e de parceiros selecionados",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "checkbox_pre_marcado"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": 14,
+        "contraste": 15.909984431773273
+      },
+      "semantica": {
+        "tagsSemanticas": [
+          "consentimento_pre_marcado"
+        ],
+        "evidencias": {},
+        "confiancaSemantica": 0.3
+      },
+      "decisaoFinal": {
+        "categoria": "acao_forcada",
+        "darkPatternCritico": true,
+        "nivelConfianca": "alta",
+        "justificativa": "checkbox de opt-in vem marcado por padrão (fato estrutural inequívoco, não depende de semântica)"
+      }
+    },
+    {
+      "idElemento": "btn-comprar",
+      "tag": "button",
+      "texto": "Comprar agora — R$ 259,00",
+      "textoContexto": "Finalizar compra Restam 01:57 para garantir este preço! Quero receber ofertas por e-mail e de parceiros selecionados Li e aceito os termos de compra Comprar agora — R$ 259,00",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "valor_monetario"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": 15,
+        "contraste": 5.127363028214465
+      },
+      "semantica": {
+        "tagsSemanticas": [],
+        "evidencias": {},
+        "confiancaSemantica": 0.3
+      },
+      "decisaoFinal": {
+        "categoria": null,
+        "darkPatternCritico": false,
+        "nivelConfianca": "alta",
+        "justificativa": "nenhum sinal estrutural relevante ou nenhuma correlação semântica encontrada"
+      }
+    }
+  ]
+}
