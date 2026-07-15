@@ -1,0 +1,37 @@
+{
+  "pagina": "obstrucao",
+  "elementosCaptados": [
+    {
+      "idElemento": "elemento-cancelar",
+      "tag": "span",
+      "texto": "cancelar assinatura",
+      "textoContexto": "cancelar assinatura",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "baixa_saliencia_visual"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": 10,
+        "contraste": 1.4253032906668652
+      },
+      "semantica": {
+        "tagsSemanticas": [
+          "linguagem_retencao"
+        ],
+        "evidencias": {
+          "linguagem_retencao": [
+            "cancelar"
+          ]
+        },
+        "confiancaSemantica": 0.55
+      },
+      "decisaoFinal": {
+        "categoria": "obstrucao",
+        "darkPatternCritico": true,
+        "nivelConfianca": "alta",
+        "justificativa": "elemento com baixa saliência visual correlacionado com linguagem de cancelamento/retenção (cancelar)"
+      }
+    }
+  ]
+}
