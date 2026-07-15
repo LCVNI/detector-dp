@@ -1,0 +1,64 @@
+{
+  "sistema_agregado": {
+    "n": 12,
+    "precisao": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "sistema_origem_real": {
+    "n": 12,
+    "precisao": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "sistema_categoria_Ação Forçada": {
+    "n": 4,
+    "precisao": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "sistema_categoria_Furtividade": {
+    "n": 2,
+    "precisao": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "sistema_categoria_Nenhum": {
+    "n": 4,
+    "precisao": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "sistema_categoria_Obstrução": {
+    "n": 2,
+    "precisao": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "manual_agregado": {
+    "n": 13,
+    "precisao": 0.65,
+    "recall": 0.65,
+    "f1": 0.65
+  },
+  "manual_origem_real": {
+    "n": 13,
+    "precisao": 0.65,
+    "recall": 0.65,
+    "f1": 0.65
+  },
+  "mcnemar": {
+    "tabela_2x2": [
+      [
+        9,
+        0
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "estatistica": 0.0,
+    "p_valor": 0.25
+  }
+}
