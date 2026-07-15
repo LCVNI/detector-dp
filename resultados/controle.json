@@ -1,0 +1,85 @@
+{
+  "pagina": "controle",
+  "elementosCaptados": [
+    {
+      "idElemento": "elemento-promo-real",
+      "tag": "div",
+      "texto": "Frete grátis em compras realizadas até 23:59 de 20/07/2026.",
+      "textoContexto": "Resumo do pedido Frete grátis em compras realizadas até 23:59 de 20/07/2026. Mochila impermeávelR$ 219,00 SubtotalR$ 219,00 Quero receber novidades e promoções por e-mail Finalizar compra Gerenciar minha conta / cancelar",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "formato_temporal"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": 14,
+        "contraste": 12.58657223402548
+      },
+      "semantica": {
+        "tagsSemanticas": [
+          "formato_temporal_sem_urgencia"
+        ],
+        "evidencias": {},
+        "confiancaSemantica": 0.3
+      },
+      "decisaoFinal": {
+        "categoria": "acao_forcada",
+        "darkPatternCritico": false,
+        "nivelConfianca": "alta",
+        "justificativa": "formato de horário mm:ss presente, mas sem nenhum termo de urgência ao redor — correlação descarta ação forçada (ex.: data/hora real de promoção)"
+      }
+    },
+    {
+      "idElemento": "(sem id)",
+      "tag": "span",
+      "texto": "R$ 219,00",
+      "textoContexto": "Mochila impermeávelR$ 219,00",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "valor_monetario"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": null,
+        "contraste": 15.909984431773273
+      },
+      "semantica": {
+        "tagsSemanticas": [],
+        "evidencias": {},
+        "confiancaSemantica": 0.3
+      },
+      "decisaoFinal": {
+        "categoria": null,
+        "darkPatternCritico": false,
+        "nivelConfianca": "alta",
+        "justificativa": "nenhum sinal estrutural relevante ou nenhuma correlação semântica encontrada"
+      }
+    },
+    {
+      "idElemento": "(sem id)",
+      "tag": "span",
+      "texto": "R$ 219,00",
+      "textoContexto": "SubtotalR$ 219,00",
+      "tipoEvento": "elemento_presente_no_carregamento",
+      "padroesDetectados": [
+        "valor_monetario"
+      ],
+      "estiloComputado": {
+        "opacidade": 1,
+        "fontSizePx": 16,
+        "contraste": 15.909984431773273
+      },
+      "semantica": {
+        "tagsSemanticas": [],
+        "evidencias": {},
+        "confiancaSemantica": 0.3
+      },
+      "decisaoFinal": {
+        "categoria": null,
+        "darkPatternCritico": false,
+        "nivelConfianca": "alta",
+        "justificativa": "nenhum sinal estrutural relevante ou nenhuma correlação semântica encontrada"
+      }
+    }
+  ]
+}
