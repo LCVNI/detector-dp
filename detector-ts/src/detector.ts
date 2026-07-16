@@ -24,7 +24,7 @@ import * as path from "path";
 
 const PASTA_PAGINAS = path.resolve(__dirname, "../../paginas");
 const PASTA_SAIDA = path.resolve(__dirname, "../../resultados/sinais_estruturais");
-const TEMPO_ESPERA_MS = 3500;
+const TEMPO_ESPERA_MS = 5500; // > que o maior tempo_mutacao_ms do manifesto sintético (5000ms)
 
 const TAGS_IGNORADAS = new Set(["SCRIPT", "STYLE", "HEAD", "TITLE", "META", "LINK", "NOSCRIPT"]);
 
@@ -263,16 +263,29 @@ async function analisarPagina(caminhoArquivo: string): Promise<ResultadoPagina> 
 
 async function main() {
   if (!fs.existsSync(PASTA_SAIDA)) fs.mkdirSync(PASTA_SAIDA, { recursive: true });
-  const arquivos = fs.readdirSync(PASTA_PAGINAS).filter((f) => f.endsWith(".html"));
-  console.log(`Encontradas ${arquivos.length} páginas em ${PASTA_PAGINAS}`);
 
-  for (const arquivo of arquivos) {
-    const caminho = path.join(PASTA_PAGINAS, arquivo);
-    console.log(`Analisando ${arquivo}...`);
-    const resultado = await analisarPagina(caminho);
-    const saida = path.join(PASTA_SAIDA, `${resultado.pagina}.json`);
-    fs.writeFileSync(saida, JSON.stringify(resultado, null, 2), "utf-8");
-    console.log(`  -> ${resultado.elementosCaptados.length} elemento(s) captado(s) pelo sensor`);
+  const pastaSinteticas = path.join(PASTA_PAGINAS, "sinteticas");
+  const arquivosReais = fs.readdirSync(PASTA_PAGINAS).filter((f) => f.endsWith(".html"));
+  const arquivosSinteticos = fs.existsSync(pastaSinteticas)
+    ? fs.readdirSync(pastaSinteticas).filter((f) => f.endsWith(".html")).map((f) => path.join("sinteticas", f))
+    : [];
+  const arquivos = [...arquivosReais, ...arquivosSinteticos];
+
+  console.log(`Encontradas ${arquivos.length} páginas (${arquivosReais.length} reais + ${arquivosSinteticos.length} sintéticas)`);
+
+  const TAMANHO_LOTE = 10; // processa em paralelo dentro de cada lote (a espera é um timer, não CPU)
+  for (let inicio = 0; inicio < arquivos.length; inicio += TAMANHO_LOTE) {
+    const lote = arquivos.slice(inicio, inicio + TAMANHO_LOTE);
+    console.log(`Processando lote ${inicio / TAMANHO_LOTE + 1} (${lote.length} página(s))...`);
+    await Promise.all(
+      lote.map(async (arquivo) => {
+        const caminho = path.join(PASTA_PAGINAS, arquivo);
+        const resultado = await analisarPagina(caminho);
+        const saida = path.join(PASTA_SAIDA, `${resultado.pagina}.json`);
+        fs.writeFileSync(saida, JSON.stringify(resultado, null, 2), "utf-8");
+        console.log(`  ${arquivo} -> ${resultado.elementosCaptados.length} elemento(s) captado(s)`);
+      })
+    );
   }
   console.log(`\nJSONs salvos em ${PASTA_SAIDA}`);
 }

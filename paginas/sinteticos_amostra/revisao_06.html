@@ -1,0 +1,54 @@
+<!--
+  TEMPLATE — Controle com mutação (hard negative estrutural, Regra R4)
+  Slots: Frete expresso 19.9
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>LojaModelo — Checkout</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;background:#f5f5f7;margin:0;color:#222}
+  .topo{background:#1c2b3a;color:#fff;padding:16px 24px;font-weight:bold;font-size:20px}
+  .container{max-width:640px;margin:32px auto;background:#fff;border-radius:8px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+  h1{font-size:18px;margin-top:0}
+  .item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #eee}
+  .linha-total{display:flex;justify-content:space-between;font-weight:bold;padding:14px 0;font-size:16px}
+  .pendente{color:#888;font-style:italic}
+  button{background:#2e7d32;color:#fff;border:0;padding:12px 20px;border-radius:6px;font-size:15px;cursor:pointer;width:100%;margin-top:12px}
+</style>
+</head>
+<body data-dp-origem="sintetica" data-dp-categoria-intencao="controle_mutacao">
+  <div class="topo">LojaModelo</div>
+  <div class="container">
+    <h1>Resumo do pedido</h1>
+    <div class="item"><span>Tênis de corrida</span><span>R$ 259,00</span></div>
+    <div class="item" id="elemento-frete-calculado">
+      <span>Frete expresso</span><span class="pendente" id="valor-frete">calculando...</span>
+    </div>
+    <div class="linha-total"><span>Total</span><span id="valor-total" class="pendente">calculando...</span></div>
+    <button id="btn-finalizar" disabled>Finalizar compra</button>
+  </div>
+<script>
+  const TEMPO_CALCULO_MS = 2000;
+  setTimeout(() => {
+    const valorCalculado = 19.9;
+    const subtotal = 259.00;
+    const total = subtotal + valorCalculado;
+    const linhaAntiga = document.getElementById('elemento-frete-calculado');
+    const linhaNova = document.createElement('div');
+    linhaNova.className = 'item';
+    linhaNova.id = 'elemento-frete-calculado';
+    linhaNova.innerHTML = '<span>Frete expresso</span><span>R$ ' + valorCalculado.toFixed(2).replace('.', ',') + '</span>';
+    linhaAntiga.replaceWith(linhaNova);
+    const elTotal = document.getElementById('valor-total');
+    elTotal.textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
+    elTotal.classList.remove('pendente');
+    document.getElementById('btn-finalizar').disabled = false;
+  }, TEMPO_CALCULO_MS);
+  document.getElementById('btn-finalizar').addEventListener('click', () => {
+    alert('Pedido enviado (simulação — página de teste).');
+  });
+</script>
+</body>
+</html>

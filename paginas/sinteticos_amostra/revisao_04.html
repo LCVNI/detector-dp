@@ -1,0 +1,47 @@
+<!--
+  TEMPLATE — Controle (hard negative textual, Regra R4)
+  Slots: 23:59 de 31/07/2026
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>LojaModelo — Checkout</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;background:#f5f5f7;margin:0;color:#222}
+  .topo{background:#1c2b3a;color:#fff;padding:16px 24px;font-weight:bold;font-size:20px}
+  .container{max-width:640px;margin:32px auto;background:#fff;border-radius:8px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+  h1{font-size:18px;margin-top:0}
+  .item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #eee}
+  .linha-total{display:flex;justify-content:space-between;font-weight:bold;padding:14px 0;font-size:16px}
+  .aviso-promo{background:#e8f0fe;color:#1c2b3a;padding:10px 14px;border-radius:6px;margin-bottom:16px;font-size:14px}
+  .opcao{display:flex;align-items:center;gap:8px;margin:14px 0;font-size:14px}
+  button{background:#2e7d32;color:#fff;border:0;padding:12px 20px;border-radius:6px;font-size:15px;cursor:pointer;width:100%;margin-top:10px}
+  a.link-cancelar{color:#1565c0;font-size:14px}
+</style>
+</head>
+<body data-dp-origem="sintetica" data-dp-categoria-intencao="controle">
+  <div class="topo">LojaModelo</div>
+  <div class="container">
+    <h1>Resumo do pedido</h1>
+    <div class="aviso-promo" id="elemento-promo-real">Frete grátis em compras realizadas até 23:59 de 31/07/2026.</div>
+    <div class="item"><span>Mochila impermeável</span><span>R$ 219,00</span></div>
+    <div class="linha-total"><span>Subtotal</span><span>R$ 219,00</span></div>
+    <div class="opcao">
+      <input type="checkbox" id="elemento-newsletter-opcional">
+      <label for="elemento-newsletter-opcional">Quero receber novidades e promoções por e-mail</label>
+    </div>
+    <button id="btn-finalizar">Finalizar compra</button>
+    <p><a class="link-cancelar" href="#" id="elemento-gerenciar-conta">Gerenciar minha conta / cancelar assinatura</a></p>
+  </div>
+<script>
+  document.getElementById('btn-finalizar').addEventListener('click', () => {
+    alert('Pedido enviado (simulação — página de teste).');
+  });
+  document.getElementById('elemento-gerenciar-conta').addEventListener('click', (e) => {
+    e.preventDefault();
+    alert('Assinatura cancelada imediatamente (simulação — sem obstrução).');
+  });
+</script>
+</body>
+</html>

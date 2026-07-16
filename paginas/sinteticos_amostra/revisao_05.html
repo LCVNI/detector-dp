@@ -1,0 +1,55 @@
+<!--
+  TEMPLATE — Furtividade
+  Slots: 3500 Taxa de conveniência obrigatória 14,90
+  Ancoragem (R1): Gray et al. (2018) — sneaking; mesma estrutura de
+  furtividade.html, só varia texto/tempo/valor (Regra R3).
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>LojaModelo — Finalizar Compra</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;background:#f5f5f7;margin:0;padding:0;color:#222}
+  .topo{background:#1c2b3a;color:#fff;padding:16px 24px;font-weight:bold;font-size:20px}
+  .container{max-width:640px;margin:32px auto;background:#fff;border-radius:8px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+  h1{font-size:18px;margin-top:0}
+  .item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #eee}
+  .linha-total{display:flex;justify-content:space-between;font-weight:bold;padding:14px 0;font-size:16px}
+  #resumo-carrinho{margin-top:8px}
+  .linha-nova{background:#fffceb;animation:destaque 1.2s ease-out}
+  @keyframes destaque{from{background:#fff3b0}to{background:#fffceb}}
+  button{background:#2e7d32;color:#fff;border:0;padding:12px 20px;border-radius:6px;font-size:15px;cursor:pointer;width:100%;margin-top:12px}
+</style>
+</head>
+<body data-dp-origem="sintetica" data-dp-categoria-intencao="furtividade">
+  <div class="topo">LojaModelo</div>
+  <div class="container">
+    <h1>Resumo do pedido</h1>
+    <div id="resumo-carrinho">
+      <div class="item"><span>Fone de ouvido bluetooth</span><span>R$ 189,90</span></div>
+      <div class="item"><span>Case protetora</span><span>R$ 39,90</span></div>
+      <div class="linha-total" id="linha-subtotal"><span>Subtotal</span><span id="valor-subtotal">R$ 229,80</span></div>
+    </div>
+    <button id="btn-finalizar">Finalizar compra</button>
+  </div>
+<script>
+  const TEMPO_MUTACAO_MS = 3500;
+  setTimeout(() => {
+    const resumo = document.getElementById('resumo-carrinho');
+    const subtotalLinha = document.getElementById('linha-subtotal');
+    const novaLinha = document.createElement('div');
+    novaLinha.className = 'item linha-nova';
+    novaLinha.id = 'elemento-taxa-oculta';
+    novaLinha.innerHTML = '<span>Taxa de conveniência obrigatória</span><span>R$ 14,90</span>';
+    resumo.insertBefore(novaLinha, subtotalLinha);
+    const novoTotal = 229.80 + 14.9;
+    document.getElementById('valor-subtotal').textContent =
+      'R$ ' + novoTotal.toFixed(2).replace('.', ',');
+  }, TEMPO_MUTACAO_MS);
+  document.getElementById('btn-finalizar').addEventListener('click', () => {
+    alert('Pedido enviado (simulação — página de teste).');
+  });
+</script>
+</body>
+</html>

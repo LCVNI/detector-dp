@@ -1,0 +1,7 @@
+id_pagina_disfarcada,elementos_suspeitos,categoria_atribuida
+revisao_01,link de cancelar difícil de achar,Obstrução
+revisao_02,adicional aparece automaticamente com taxa,Furtividade
+revisao_03,checkbox pré-selecionada e contador,Ação Forçada
+revisao_04,"página normal, sem dark pattern",Nenhum
+revisao_05,"pagina está repetida, igual a pagina 2",Furtividade
+revisao_06,"normal, sem nenhum dark pattern",Nenhum

@@ -1,0 +1,54 @@
+<!--
+  TEMPLATE — Ação Forçada
+  Slots: Restam apenas para garantir este preço! 03:00
+  Ancoragem (R1): Gray et al. (2018) — forced action; Mathur et al. (2019) —
+  urgência artificial. Checkbox pré-marcado mantido fixo (é o próprio fato
+  estrutural sendo testado, não um slot de variação de texto).
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>LojaModelo — Checkout</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;background:#f5f5f7;margin:0;color:#222}
+  .topo{background:#1c2b3a;color:#fff;padding:16px 24px;font-weight:bold;font-size:20px}
+  .container{max-width:640px;margin:32px auto;background:#fff;border-radius:8px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+  h1{font-size:18px;margin-top:0}
+  #elemento-timer{background:#c62828;color:#fff;padding:10px 14px;border-radius:6px;text-align:center;font-weight:bold;margin-bottom:18px}
+  .opcao{display:flex;align-items:center;gap:8px;margin:14px 0;font-size:14px}
+  button{background:#2e7d32;color:#fff;border:0;padding:12px 20px;border-radius:6px;font-size:15px;cursor:pointer;width:100%;margin-top:10px}
+</style>
+</head>
+<body data-dp-origem="sintetica" data-dp-categoria-intencao="acao_forcada">
+  <div class="topo">LojaModelo</div>
+  <div class="container">
+    <h1>Finalizar compra</h1>
+    <div id="elemento-timer">Restam apenas <span id="contador">03:00</span> para garantir este preço!</div>
+    <div class="opcao">
+      <input type="checkbox" id="elemento-checkbox-preselecionado" checked>
+      <label for="elemento-checkbox-preselecionado">Quero receber ofertas por e-mail e de parceiros selecionados</label>
+    </div>
+    <div class="opcao">
+      <input type="checkbox" id="chk-termos">
+      <label for="chk-termos">Li e aceito os termos de compra</label>
+    </div>
+    <button id="btn-comprar">Comprar agora — R$ 259,00</button>
+  </div>
+<script>
+  let [minutosIniciais, segundosIniciais] = "03:00".split(':').map(Number);
+  let restante = minutosIniciais * 60 + segundosIniciais;
+  const el = document.getElementById('contador');
+  setInterval(() => {
+    if (restante <= 0) return;
+    restante--;
+    const m = String(Math.floor(restante / 60)).padStart(2, '0');
+    const s = String(restante % 60).padStart(2, '0');
+    el.textContent = `${m}:${s}`;
+  }, 1000);
+  document.getElementById('btn-comprar').addEventListener('click', () => {
+    alert('Compra confirmada (simulação — página de teste).');
+  });
+</script>
+</body>
+</html>
